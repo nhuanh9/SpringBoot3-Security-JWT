@@ -3,7 +3,6 @@ package com.example.jwtspring3.security;
 
 import com.example.jwtspring3.security.jwt.CustomAccessDeniedHandler;
 import com.example.jwtspring3.security.jwt.JwtAuthenticationFilter;
-import com.example.jwtspring3.security.jwt.RestAuthenticationEntryPoint;
 import com.example.jwtspring3.service.UserService;
 import com.example.jwtspring3.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,11 +53,6 @@ public class SecurityConfig {
         authenticationProvider.setUserDetailsService(userService());
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
-    }
-
-    @Bean
-    public RestAuthenticationEntryPoint restServicesEntryPoint() {
-        return new RestAuthenticationEntryPoint();
     }
 
     @Bean
